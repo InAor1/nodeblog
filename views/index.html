@@ -1,0 +1,335 @@
+{{extend './_layouts/home.html'}}
+
+{{block 'title'}}{{'博客首页'}}{{/block}}
+
+{{block 'head'}} 
+<link rel="stylesheet" type="text/css" href="../public/css/commen.css" />
+<link rel="stylesheet" type="text/css" href="../public/css/style.css" />
+
+{{/block}}
+
+{{block 'body'}}
+<div class="shell"> 
+  <ul class="images">
+      <li class="img"></li>
+      <li class="img"></li>
+      <li class="img"></li>
+  </ul>
+  <ul class="mind">
+      <li class="min"></li>
+      <li class="min"></li>
+      <li class="min"></li>
+  </ul>
+  <div class="button">
+      <div id="button-left"><</div>
+      <div id="button-right">></div>
+  </div>
+</div>
+
+<div class="container mt-5">
+<h2 class="mb-4">热门推荐</h2>
+{{each blogs}}
+<div class="card-deck">
+      <div class="card">
+          <img src="../public/img/2.jpg" class="card-img-top" alt="..."> 
+          <div class="card-body">
+              <h5 class="card-title">{{ $value}}</h5>
+              
+          </div>
+          <div class="card-footer bg-white border-0">
+              <a href="#" class="btn btn-primary float-right stretched-link">查看详情</a>
+          </div> 
+
+      </div> {{/each}}
+<div class="card">
+  <img src="../public/img/8.jpg" width="253px" height="131px" class="card-img-top" alt="...">
+  <div class="card-body">
+      <h5 class="card-title">乌克兰终于“造反”了</h5>
+      <p class="card-text"><small class="text-muted">2022-2-24 20:14:52</small></p>
+      <p class="card-text">大国博弈，小国为棋</p>
+  </div>
+  <div class="card-footer bg-white border-0">
+      <a href="#" class="btn btn-primary float-right stretched-link">查看详情</a>
+  </div>
+</div>
+<div class="card">
+  <img src="../public/img/9.jpg" width="253px" height="131px" class="card-img-top" alt="...">
+  <div class="card-body">
+      <h5 class="card-title">美国为了“困住”俄罗斯</h5>
+      <p class="card-text"><small class="text-muted">2022-2-24 20:14:52</small></p>
+      <p class="card-text">完全不顾乌克兰的安危</p>
+  </div>
+  <div class="card-footer bg-white border-0">
+      <a href="#" class="btn btn-primary float-right stretched-link">查看详情</a>
+  </div>
+</div>
+<div class="card">
+  <img src="../public/img/10.jpg" width="253px" height="131px" class="card-img-top" alt="...">
+  <div class="card-body">
+      <h5 class="card-title">总统办公室喊话：赶紧回国</h5>
+      <p class="card-text"><small class="text-muted">2022-2-24 20:14:52</small></p>
+      <p class="card-text">最富有的一批人正“逃离”乌克兰</p>
+  </div>
+  <div class="card-footer bg-white border-0">
+      <a href="#" class="btn btn-primary float-right stretched-link">查看详情</a>
+  </div>
+</div>
+<div class="card">
+  <img src="../public/img/11.jpg" width="253px" height="131px" class="card-img-top" alt="...">
+  <div class="card-body">
+      <h5 class="card-title">乌总统泽连斯基发言</h5>
+      <p class="card-text"><small class="text-muted">2022-2-24 20:14:52</small></p>
+      <p class="card-text">要求相关媒体“提供更多的证据”</p>
+  </div>
+  <div class="card-footer bg-white border-0">
+      <a href="#" class="btn btn-primary float-right stretched-link">查看详情</a>
+  </div>
+</div>
+</div>
+</div>
+
+<section class="container">
+  <h2 class="mb-4">最新评论</h2>
+  <ul class="media-list">
+    <li class="media">
+      <div class="media-left">
+        <a href="#">
+            <img width="40" height="40" class="media-object" src="../public/img/avatar-max-img.png" alt="...">
+          </a>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading"><a href="/topics/123">Media heading</a></h4>
+        <p>sueysok 回复了问题 • 2 人关注 • 1 个回复 • 187 次浏览 • 2022-10-20 13:45</p>
+      </div>
+    </li>
+    <li class="media">
+      <div class="media-left">
+        <a href="#">
+            <img width="40" height="40" class="media-object" src="../public/img/avatar-max-img.png" alt="...">
+          </a>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading"><a href="/topics/123">Media heading</a></h4>
+        <p>sueysok 回复了问题 • 2 人关注 • 1 个回复 • 187 次浏览 • 2022-10-20 13:45</p>
+      </div>
+    </li>
+    <li class="media">
+      <div class="media-left">
+        <a href="#">
+            <img width="40" height="40" class="media-object" src="../public/img/avatar-max-img.png" alt="...">
+          </a>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading"><a href="/topics/123">Media heading</a></h4>
+        <p>sueysok 回复了问题 • 2 人关注 • 1 个回复 • 187 次浏览 • 2022-10-20 13:45</p>
+      </div>
+    </li>
+    <li class="media">
+      <div class="media-left">
+        <a href="#">
+            <img width="40" height="40" class="media-object" src="../public/img/avatar-max-img.png" alt="...">
+          </a>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading"><a href="/topics/123">Media heading</a></h4>
+        <p>sueysok 回复了问题 • 2 人关注 • 1 个回复 • 187 次浏览 • 2021-10-20 13:45</p>
+      </div>
+    </li>
+    <li class="media">
+      <div class="media-left">
+        <a href="#">
+            <img width="40" height="40" class="media-object" src="../public/img/avatar-max-img.png" alt="...">
+          </a>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading"><a href="/topics/123">Media heading</a></h4>
+        <p>sueysok 回复了问题 • 2 人关注 • 1 个回复 • 187 次浏览 • 2021-10-20 13:45</p>
+      </div>
+    </li>
+    <li class="media">
+      <div class="media-left">
+        <a href="#">
+            <img width="40" height="40" class="media-object" src="../public/img/avatar-max-img.png" alt="...">
+          </a>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading"><a href="/topics/123">Media heading</a></h4>
+        <p>sueysok 回复了问题 • 2 人关注 • 1 个回复 • 187 次浏览 • 2021-10-20 13:45</p>
+      </div>
+    </li>
+    <li class="media">
+      <div class="media-left">
+        <a href="#">
+            <img width="40" height="40" class="media-object" src="../public/img/avatar-max-img.png" alt="...">
+          </a>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading"><a href="/topics/123">Media heading</a></h4>
+        <p>sueysok 回复了问题 • 2 人关注 • 1 个回复 • 187 次浏览 • 2021-10-20 13:45</p>
+      </div>
+    </li>
+    <li class="media">
+      <div class="media-left">
+        <a href="#">
+            <img width="40" height="40" class="media-object" src="../public/img/avatar-max-img.png" alt="...">
+          </a>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading"><a href="/topics/123">Media heading</a></h4>
+        <p>sueysok 回复了问题 • 2 人关注 • 1 个回复 • 187 次浏览 • 2021-10-20 13:45</p>
+      </div>
+    </li>
+    <li class="media">
+      <div class="media-left">
+        <a href="#">
+            <img width="40" height="40" class="media-object" src="../public/img/avatar-max-img.png" alt="...">
+          </a>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading"><a href="/topics/123">Media heading</a></h4>
+        <p>sueysok 回复了问题 • 2 人关注 • 1 个回复 • 187 次浏览 • 2017-10-20 13:45</p>
+      </div>
+    </li>
+    <li class="media">
+      <div class="media-left">
+        <a href="#">
+            <img width="40" height="40" class="media-object" src="../public/img/avatar-max-img.png" alt="...">
+          </a>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading"><a href="/topics/123">Media heading</a></h4>
+        <p>sueysok 回复了问题 • 2 人关注 • 1 个回复 • 187 次浏览 • 2017-10-20 13:45</p>
+      </div>
+    </li>
+    <li class="media">
+      <div class="media-left">
+        <a href="#">
+            <img width="40" height="40" class="media-object" src="../public/img/avatar-max-img.png" alt="...">
+          </a>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading"><a href="/topics/123">Media heading</a></h4>
+        <p>sueysok 回复了问题 • 2 人关注 • 1 个回复 • 187 次浏览 • 2017-10-20 13:45</p>
+      </div>
+    </li>
+    <li class="media">
+      <div class="media-left">
+        <a href="#">
+            <img width="40" height="40" class="media-object" src="../public/img/avatar-max-img.png" alt="...">
+          </a>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading"><a href="/topics/123">Media heading</a></h4>
+        <p>sueysok 回复了问题 • 2 人关注 • 1 个回复 • 187 次浏览 • 2017-10-20 13:45</p>
+      </div>
+    </li>
+    <li class="media">
+      <div class="media-left">
+        <a href="#">
+            <img width="40" height="40" class="media-object" src="../public/img/avatar-max-img.png" alt="...">
+          </a>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading"><a href="/topics/123">Media heading</a></h4>
+        <p>sueysok 回复了问题 • 2 人关注 • 1 个回复 • 187 次浏览 • 2017-10-20 13:45</p>
+      </div>
+    </li>
+    <li class="media">
+      <div class="media-left">
+        <a href="#">
+            <img width="40" height="40" class="media-object" src="../public/img/avatar-max-img.png" alt="...">
+          </a>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading"><a href="/topics/123">Media heading</a></h4>
+        <p>sueysok 回复了问题 • 2 人关注 • 1 个回复 • 187 次浏览 • 2017-10-20 13:45</p>
+      </div>
+    </li>
+    <li class="media">
+      <div class="media-left">
+        <a href="#">
+            <img width="40" height="40" class="media-object" src="../public/img/avatar-max-img.png" alt="...">
+          </a>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading"><a href="/topics/123">Media heading</a></h4>
+        <p>sueysok 回复了问题 • 2 人关注 • 1 个回复 • 187 次浏览 • 2017-10-20 13:45</p>
+      </div>
+    </li>
+    <li class="media">
+      <div class="media-left">
+        <a href="#">
+            <img width="40" height="40" class="media-object" src="../public/img/avatar-max-img.png" alt="...">
+          </a>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading"><a href="/topics/123">Media heading</a></h4>
+        <p>sueysok 回复了问题 • 2 人关注 • 1 个回复 • 187 次浏览 • 2017-10-20 13:45</p>
+      </div>
+    </li>
+    <li class="media">
+      <div class="media-left">
+        <a href="#">
+            <img width="40" height="40" class="media-object" src="../public/img/avatar-max-img.png" alt="...">
+          </a>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading"><a href="/topics/123">Media heading</a></h4>
+        <p>sueysok 回复了问题 • 2 人关注 • 1 个回复 • 187 次浏览 • 2017-10-20 13:45</p>
+      </div>
+    </li>
+    <li class="media">
+      <div class="media-left">
+        <a href="#">
+            <img width="40" height="40" class="media-object" src="../public/img/avatar-max-img.png" alt="...">
+          </a>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading"><a href="/topics/123">Media heading</a></h4>
+        <p>sueysok 回复了问题 • 2 人关注 • 1 个回复 • 187 次浏览 • 2017-10-20 13:45</p>
+      </div>
+    </li>
+    <li class="media">
+      <div class="media-left">
+        <a href="#">
+            <img width="40" height="40" class="media-object" src="../public/img/avatar-max-img.png" alt="...">
+          </a>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading"><a href="/topics/123">Media heading</a></h4>
+        <p>sueysok 回复了问题 • 2 人关注 • 1 个回复 • 187 次浏览 • 2017-10-20 13:45</p>
+      </div>
+    </li>
+    <li class="media">
+      <div class="media-left">
+        <a href="#">
+            <img width="40" height="40" class="media-object" src="../public/img/avatar-max-img.png" alt="...">
+          </a>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading"><a href="/topics/123">Media heading</a></h4>
+        <p>sueysok 回复了问题 • 2 人关注 • 1 个回复 • 187 次浏览 • 2017-10-20 13:45</p>
+      </div>
+    </li>
+  </ul>
+  <nav aria-label="Page navigation">
+    <ul class="pagination">
+      <li>
+        <a href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+      </li>
+      <li class="active"><a href="#">1</a></li>
+      <li><a href="#">2</a></li>
+      <li><a href="#">3</a></li>
+      <li><a href="#">4</a></li>
+      <li><a href="#">5</a></li>
+      <li>
+        <a href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+      </li>
+    </ul>
+  </nav>
+</section>
+{{/block}}

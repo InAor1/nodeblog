@@ -1,0 +1,22 @@
+#banner {
+    list-style: none;
+    position: absolute;
+    padding: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 800px;
+    height: 200px;
+}
+#banner:hover {
+    cursor: pointer;
+
+}
+#banner li {
+    float: left;
+    position:absolute;
+    left: 0px;
+    transition-duration: 0.4s;
+}

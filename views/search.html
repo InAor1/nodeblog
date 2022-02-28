@@ -1,0 +1,127 @@
+{{extend './_layouts/home.html'}}
+
+{{block 'title'}}{{'博客搜索页'}}{{/block}}
+
+{{block 'head'}} 
+<link rel="stylesheet" type="text/css" href="../public/css/commen.css" />
+<link rel="stylesheet" type="text/css" href="../public/css/style.css" />
+<style type="text/css">
+    .navbar-right {
+        display: none;
+    }
+</style>
+{{/block}}
+{{block 'body'}}
+<div class="container mt-5">
+    <h2 class="mb-4">搜索结果（搜索词： {{keyword.content}}）</h2>
+    <div class="row row-cols-4">
+        <div class="col my-3">
+            {{each Blogs}}
+            <div class="card h-100">
+                <img src="{{$value.img}}"  width="253px" height="131px" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{$value.title}}</h5>
+                    <p class="card-text"><small class="text-muted">2022-2-10 20:14:52</small></p>
+                    <p class="card-text">{{$value.content}}</p>
+                    <a href="#" class="stretched-link"></a>
+                </div>
+                <div class="card-footer bg-white border-0">
+                    <a href="#" class="btn btn-primary float-right stretched-link">查看详情</a>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+        <br>
+        <h2>可能感兴趣</h2>
+        <div class="card">
+            <img src="../public/img/8.jpg" width="253px" height="131px" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">乌克兰终于“造反”了</h5>
+                <p class="card-text"><small class="text-muted">2022-2-24 20:14:52</small></p>
+                <p class="card-text">大国博弈，小国为棋</p>
+            </div>
+            <div class="card-footer bg-white border-0">
+                <a href="#" class="btn btn-primary float-right stretched-link">查看详情</a>
+            </div>
+          </div>
+          <div class="card">
+            <img src="../public/img/9.jpg" width="253px" height="131px" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">美国为了“困住”俄罗斯</h5>
+                <p class="card-text"><small class="text-muted">2022-2-24 20:14:52</small></p>
+                <p class="card-text">完全不顾乌克兰的安危</p>
+            </div>
+            <div class="card-footer bg-white border-0">
+                <a href="#" class="btn btn-primary float-right stretched-link">查看详情</a>
+            </div>
+          </div>
+          <div class="card">
+            <img src="../public/img/10.jpg" width="253px" height="131px" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">总统办公室喊话：赶紧回国</h5>
+                <p class="card-text"><small class="text-muted">2022-2-24 20:14:52</small></p>
+                <p class="card-text">最富有的一批人正“逃离”乌克兰</p>
+            </div>
+            <div class="card-footer bg-white border-0">
+                <a href="#" class="btn btn-primary float-right stretched-link">查看详情</a>
+            </div>
+          </div>
+          <div class="card">
+            <img src="../public/img/11.jpg" width="253px" height="131px" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">乌总统泽连斯基发言</h5>
+                <p class="card-text"><small class="text-muted">2022-2-24 20:14:52</small></p>
+                <p class="card-text">要求相关媒体“提供更多的证据”</p>
+            </div>
+            <div class="card-footer bg-white border-0">
+                <a href="#" class="btn btn-primary float-right stretched-link">查看详情</a>
+            </div>
+          </div>
+    <!-- <div class="col my-3">
+
+        <div class="card h-100">
+            <img src="holder.js/100px150" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">标题</h5>
+                <p class="card-text"><small class="text-muted">2022-2-10 20:14:52</small></p>
+                <p class="card-text">内容简要...</p>
+                <a href="#" class="stretched-link"></a>
+            </div>
+        </div>
+    </div>
+    <div class="col my-3">
+        <div class="card h-100">
+            <img src="holder.js/100px150" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">标题</h5>
+                <p class="card-text"><small class="text-muted">2022-2-10 20:14:52</small></p>
+                <p class="card-text">内容简要...</p>
+                <a href="#" class="stretched-link"></a>
+            </div>
+        </div>
+    </div>
+    <div class="col my-3">
+        <div class="card h-100">
+            <img src="holder.js/100px150" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">标题</h5>
+                <p class="card-text"><small class="text-muted">2022-2-10 20:14:52</small></p>
+                <p class="card-text">内容简要...</p>
+                <a href="#" class="stretched-link"></a>
+            </div>
+        </div>
+    </div>
+    <div class="col my-3">
+        <div class="card h-100">
+            <img src="holder.js/100px150" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">标题</h5>
+                <p class="card-text"><small class="text-muted">2022-2-10 20:14:52</small></p>
+                <p class="card-text">内容简要...</p>
+                <a href="#" class="stretched-link"></a>
+            </div>
+        </div>
+    </div> -->
+</div>
+{{/block}}

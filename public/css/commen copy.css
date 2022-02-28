@@ -1,0 +1,86 @@
+* {
+    list-style: none;
+    margin: 0 auto;
+    text-decoration:none;
+    box-sizing: border-box;
+}
+.banxin {
+    width: 1200px;
+    margin: 0 auto;
+}
+body {
+    font-family: Georgia, "Times New Roman", Times, serif;
+}
+.navbar {
+    height: 40px;
+    margin-top: 0 auto;
+    background-color: #428bca;
+}
+#nav-awhite ul li a{
+    color: #FFFFFF;
+    text-align: center;
+}
+.navbar-brand,navbar-toggler{
+    float: left;
+}
+/* .navbar-nav {
+    margin:0 206px;
+} */
+.nav-iteml {
+    float: left; 
+    padding: 15px 10px;
+
+}
+.nav-link {
+    color: #FFFFFF;
+    text-align: center;
+}
+
+
+.nav-form {
+    float: left;
+    margin: 10px 30px;
+}
+.nav-form input {
+    float: left;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    background: #f1f1f1;
+}
+.nav-form button{
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    padding: 10px 12px;
+    font-size: 14px;
+    line-height: 0.75;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.nav-itemr {
+    float: right; 
+    padding: 10px;
+}
+/* .dropdown-menu {
+    display: none;
+} */
+.dropdown-toggle:hover.dropdown-menu {
+    display: block;
+}
+.navbar-right {
+    float: right;
+    margin-left: 0;
+}

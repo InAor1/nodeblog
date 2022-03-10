@@ -1,0 +1,66 @@
+<link rel="stylesheet" type="text/css" href="../public/css/commen.css" />
+<nav class="navbar navbar-default">
+  <div class="container">
+
+    <div class="collapse navbar-collapse banxin" id="bs-example-navbar-collapse-1">
+     
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+  
+          <div class="collapse navbar-collapse" id="nav-awhite">
+              <ul class="navbar-nav">
+                  <li class="nav-iteml">
+                      <a class="nav-link" href="/">首页</a>
+                  </li>
+                  <li class="nav-iteml">
+                      <a class="nav-link" href="/404">热门推荐</a>
+                  </li>
+                  <li class="nav-iteml">
+                      <a class="nav-link" href="/blog1">冬奥会</a>
+                  </li>
+                  <li class="nav-iteml">
+                      <a class="nav-link" href="/">同城</a>
+                  </li>
+                  <li class="nav-iteml">
+                      <a class="nav-link" href="/blog2">抗疫</a>
+                  </li>
+              </ul>
+              
+              <div class="nav-form">
+                <form class="form-inline my-2 my-lg-0 ml-5" method="post" action='/article/search'>
+                  <input class="form-control mr-sm-2" name="keyword" type="search" placeholder="请输入关键词...">
+                  <button class="but-all" type="submit">搜索</button>
+              </form>
+                  
+               </div>
+            
+        {{ if user }}
+        <a class="navbar-btn" href="/topics/new">发起</a>
+        <ul class="nav navbar-nav navbar-right">
+        
+        <li class="dropdown open" id="blackindex">
+          <a href="#" id="dripdw" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img  class="touxiang"  src="../../public/img/avatar-default.png" alt=""> <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-current-user">
+              当前登录用户: {{ user.nickname }}
+            </li>
+            <li role="separator" class="divider"></li>
+            <li><a href="/profile">个人主页</a></li>
+            <li><a href="/admin">设置</a></li>
+            <li><a href="/mybolg">我的博客</a></li>
+            <li><a href="/logout">退出</a></li>
+          </ul>
+        </li>
+        {{ else }}
+        <a class="btn btn-primary navbar-btn" href="/login">登录</a>
+        <a class="btn btn-success navbar-btn" href="/register">注册</a>
+        {{ /if }}
+              </ul>
+          </div>
+      </nav>  
+      
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container-fluid -->
+</nav>

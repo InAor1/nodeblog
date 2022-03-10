@@ -1,0 +1,47 @@
+#banner {
+    list-style: none;
+    position: absolute;
+    padding: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 80px 150px;
+    width: 800px;
+    height: 400px;
+}
+#banner:hover {
+    cursor: pointer;
+
+}
+#banner li {
+    float: left;
+    position:absolute;
+    left: 0px;
+    transition-duration: 0.4s;
+}
+#shell {
+    position: relative;
+    left: -250px;
+    top: -50px;
+    height: 425px;
+    width: 1000px;
+    margin-top: 75px;
+}
+#nex_img {
+    position : absolute;
+    right : -552px;
+    top:  0;
+    bottom : 70px;
+    margin : auto;
+    padding: 150px;
+}
+#pre_img {
+    position : absolute;
+    left: -150px;
+    top:  0;
+    bottom : 70px;
+    margin : auto;
+    padding: 150px;
+}
+

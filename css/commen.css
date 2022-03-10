@@ -1,0 +1,133 @@
+* {
+    list-style: none;
+    margin: 0 auto;
+    text-decoration:none;
+    box-sizing: border-box;
+    font-family: Georgia, "Times New Roman", Times, serif;
+}
+.banxin {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.navbar {
+    height: 40px;
+    min-height: 40px;
+    margin-top: 0 auto;
+    background-color: #428bca;
+}
+#nav-awhite ul li a{
+    color: #FFFFFF;
+    text-align: center;
+}
+.navbar-brand,navbar-toggler{
+    float: left;
+}
+.nav-iteml {
+    float: left; 
+    padding: 10px 10px;
+
+}
+.nav-link {
+    color: #FFFFFF;
+    text-align: center;
+}
+
+
+.nav-form {
+    float: left;
+    margin: 5px 30px;
+}
+.nav-form input {
+    float: left;
+    display: block;
+    height: 30px;
+    border-radius: 4px;
+    font-size: 17px;
+    border: 1px solid grey;
+    background: #f1f1f1;
+}
+button{
+    display: inline-block;
+    margin-bottom: 0;
+    text-align: center;
+    border: 1px solid transparent;
+    padding: 10px 12px;
+    font-size: 14px;
+    line-height: 0.5;
+    border-radius: 4px;
+}
+
+.nav-itemr {
+    float: right; 
+    padding: 10px;
+}
+/* .dropdown-menu {
+    display: none;
+} */
+.dropdown-toggle:hover.dropdown-menu {
+    display: block;
+}
+.navbar-right {
+    float: right;
+    
+}
+
+#dripdw {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    margin-right: 117px;
+}
+.touxiang {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+#blackindex ul li a {
+    color: black;
+}
+.navbar-right {
+    padding: 0;
+    margin: 0;
+}
+#blackindex .dropdown-menu {
+    display: none;
+}
+#blackindex .dropdown-menu:hover {
+    display:block;
+}
+#dripdw:hover+.dropdown-menu {
+    display: block;
+}
+#dripdw+.dropdown-menu {
+
+    color: #428bca;
+}
+.dropdown-menu {
+    padding: 0;
+    margin: 0;
+}
+.navbar-btn {
+    position: absolute;
+    right: 210px;
+    margin-bottom: 0;
+    margin-top: 5px;
+    text-align: center;
+    border: 1px solid transparent;
+    padding: 10px 12px;
+    font-size: 14px;
+    line-height: 0.5;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+}
+.btn-primary {
+    position: absolute;
+    right: 150px;
+}
+/* .navbar {
+    min-height: 0;
+    margin-bottom: 0;
+} */
+

@@ -1,7 +1,10 @@
 {{extend '../_layouts/home.html'}}
 
 {{block 'title'}}{{'多人博客 - 首页'}}{{/block}}
+{{block 'head'}}
 
+<link rel="stylesheet" href="../../public/css/setting.css">
+{{/block}}
 {{block 'body'}}
 <section class="container">
   {{include '../_partials/settings-nav.html'}}
@@ -13,15 +16,15 @@
     <form>
       <div class="form-group">
         <label for="exampleInputPassword1">当前密码</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="">
+        <input type="password" class="form-control form-input" id="exampleInputPassword1" placeholder="">
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">新的密码</label>
-        <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="">
+        <input type="password" name="password" class="form-control form-input" id="exampleInputPassword1" placeholder="">
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">确认密码</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="">
+        <input type="password" class="form-control form-input" id="exampleInputPassword1" placeholder="">
       </div>
       <button type="submit" class="btn btn-success">保存</button>
     </form>

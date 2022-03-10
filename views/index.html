@@ -5,28 +5,110 @@
 {{block 'head'}} 
 <link rel="stylesheet" type="text/css" href="../public/css/commen.css" />
 <link rel="stylesheet" type="text/css" href="../public/css/style.css" />
+<link rel="stylesheet" type="text/css" href="../public/css/shell.css" />
+<script>
+  window.onload = function(){
+      
+      let timer = setInterval(get_pre,3000)
 
+      let sz = new Array();
+      var cur_ul = document.getElementById("banner");
+      for(let i = 1; i<=3;i++){
+          let len = sz.length-1;
+          var cur_li = document.createElement("li");
+          var cur_img = document.createElement("img");
+
+          cur_img.src = "../public/img/" + i +".jpg";
+          cur_img.style.width = "600px";
+          cur_img.style.height = "300px";
+          cur_li.appendChild(cur_img);
+          cur_ul.appendChild(cur_li);
+          sz.push(cur_li)
+          sz[sz.length-1].style.left = "0px";
+      }
+      let len = sz.length-1;
+      sz[len-2].style.left = "0px";
+      sz[len-1].style.zIndex = 100;
+      sz[len-1].style.left = "300px";
+      sz[len-1].style.transform = "scale(1.3)";
+      sz[len].style.left = "600px";
+
+      function get_next(){
+      let give_up  = sz[0];
+      sz.splice(0,1);
+      sz.push(give_up);
+
+      for(let i= 0;i<sz.length;i++){
+          sz[i].style.zIndex = i;
+          sz[i].style.transform= "scale(1)";
+      }
+      sz[len-2].style.left = "0px";
+      sz[len-1].style.zIndex = 100;
+      sz[len-1].style.left = "300px";
+      sz[len-1].style.transform = "scale(1.3)";
+      sz[len-1].style.opacity= 1;
+      sz[len].style.left = "600px";
+      }
+
+      function get_pre(){
+      let give_up  = sz[len];
+      sz.pop();
+      sz.unshift(give_up);
+
+      for(let i= 0;i<sz.length;i++){
+          sz[i].style.zIndex = i;
+          sz[i].style.transform= "scale(1)";
+      }
+      sz[len-2].style.left = "0px";
+      sz[len-1].style.zIndex = 100;
+      sz[len-1].style.left = "300px";
+      sz[len-1].style.transform = "scale(1.3)";
+      sz[len-1].style.opacity= 1;
+      sz[len].style.left = "600px";
+      }
+
+
+      let pre_img = document.getElementById("pre_img")
+        pre_img.src = "../public/img/preImg.png";
+        pre_img.style.margin = "auto"
+        pre_img.style.zIndex = 100;
+
+
+        let nex_img = document.getElementById("nex_img")
+        nex_img.src = "../public/img/nexImg.png";
+        nex_img.style.zIndex = 100;
+        // cur_ul.appendChild(nex_img);
+
+        let nex_min = document.getElementsByClassName("min")
+        nex_img.style.zIndex = 101;
+
+        pre_img.onclick = function () {
+            clearInterval(timer);
+            get_next();
+            timer = setInterval(get_pre, 3000)
+        }
+
+        nex_img.onclick = function () {
+            clearInterval(timer);
+            get_pre();
+            timer = setInterval(get_pre, 3000)
+        }
+  }
+  
+</script>
 {{/block}}
 
 {{block 'body'}}
-<div class="shell"> 
-  <ul class="images">
-      <li class="img"></li>
-      <li class="img"></li>
-      <li class="img"></li>
+<div id="shell">
+  <ul id="banner">
+    <a id="pre_div"><img src="" id="pre_img" alt=""></a>
+    <a id="nex_div"><img src="" id="nex_img" alt=""></a>
+    
   </ul>
-  <ul class="mind">
-      <li class="min"></li>
-      <li class="min"></li>
-      <li class="min"></li>
-  </ul>
-  <div class="button">
-      <div id="button-left"><</div>
-      <div id="button-right">></div>
-  </div>
 </div>
 
-<div class="container mt-5">
+
+<div class="container mt-5 banxin">
 <h2 class="mb-4">热门推荐</h2>
 {{each blogs}}
 <div class="card-deck">
@@ -37,7 +119,7 @@
               
           </div>
           <div class="card-footer bg-white border-0">
-              <a href="#" class="btn btn-primary float-right stretched-link">查看详情</a>
+              <a href="/blog3?id={{item._id}}" class="btn btn-primary float-right stretched-link">查看详情</a>
           </div> 
 
       </div> {{/each}}
@@ -49,7 +131,7 @@
       <p class="card-text">大国博弈，小国为棋</p>
   </div>
   <div class="card-footer bg-white border-0">
-      <a href="#" class="btn btn-primary float-right stretched-link">查看详情</a>
+      <a href="#" class="btn  float-right stretched-link">查看详情</a>
   </div>
 </div>
 <div class="card">
@@ -60,7 +142,7 @@
       <p class="card-text">完全不顾乌克兰的安危</p>
   </div>
   <div class="card-footer bg-white border-0">
-      <a href="#" class="btn btn-primary float-right stretched-link">查看详情</a>
+      <a href="/blog3?id={{item._id}}" class="btn  float-right stretched-link">查看详情</a>
   </div>
 </div>
 <div class="card">
@@ -71,7 +153,7 @@
       <p class="card-text">最富有的一批人正“逃离”乌克兰</p>
   </div>
   <div class="card-footer bg-white border-0">
-      <a href="#" class="btn btn-primary float-right stretched-link">查看详情</a>
+      <a href="#" class="btn  float-right stretched-link">查看详情</a>
   </div>
 </div>
 <div class="card">
@@ -82,13 +164,13 @@
       <p class="card-text">要求相关媒体“提供更多的证据”</p>
   </div>
   <div class="card-footer bg-white border-0">
-      <a href="#" class="btn btn-primary float-right stretched-link">查看详情</a>
+      <a href="#" class="btn  float-right stretched-link">查看详情</a>
   </div>
 </div>
 </div>
 </div>
 
-<section class="container">
+<section class="container banxin">
   <h2 class="mb-4">最新评论</h2>
   <ul class="media-list">
     <li class="media">

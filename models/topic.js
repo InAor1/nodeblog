@@ -23,6 +23,10 @@ var topSchema = new Schema({
         type:String,
         default:1
     },
+    keyword: {
+        type:String,
+        default:1
+    }
 })
 
 module.exports = mongoose.model('top', topSchema)

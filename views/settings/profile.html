@@ -1,6 +1,9 @@
 {{extend '../_layouts/home.html'}}
 
 {{block 'title'}}{{'多人博客 - 首页'}}{{/block}}
+{{block 'head'}}
+<link rel="stylesheet" href="../../public/css/setting.css">
+{{/block}}
 
 {{block 'body'}}
 <section class="container">
@@ -13,11 +16,11 @@
       </div> -->
       <div class="form-group">
         <label for="exampleInputPassword1">昵称</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="">
+        <input type="password" class="form-control form-input" id="exampleInputPassword1" placeholder="">
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">介绍</label>
-        <textarea class="form-control" rows="3"></textarea>
+        <textarea class="form-control form-input" rows="3" style="height: 150px;"></textarea>
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">性别</label>
@@ -35,7 +38,7 @@
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">生日</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="">
+        <input type="password" class="form-control form-input" id="exampleInputPassword1" placeholder="">
       </div>
       <button type="submit" class="btn btn-success">保存</button>
     </form>

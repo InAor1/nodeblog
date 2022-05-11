@@ -13,12 +13,12 @@
 {{/block}}
 {{block 'body'}}
 <div class="container mt-5 banxin">
-    <h2 class="mb-4">搜索结果（搜索词： {{keyword.content}}）</h2>
+    <h2 class="mb-4">搜索结果（搜索词： {{keyword}}）</h2>
     <div class="row row-cols-4">
         <div class="col my-3">
             {{each Blogs}}
             <div class="card h-100">
-                <img src="{{$value.img}}"  width="253px" height="131px" class="card-img-top" alt="...">
+                <img src="../public/img/12.jpg"  width="253px" height="131px" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">{{$value.title}}</h5>
                     <p class="card-text"><small class="text-muted">2022-2-10 20:14:52</small></p>

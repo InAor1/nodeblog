@@ -14,7 +14,7 @@
         </div>
         <div class="form-group">
           <label for="exampleInputEmail1">标题</label>
-          <input name="title" type="text" class="form-control form-input" id="exampleInputEmail1">
+          <input name="title" type="text" class="form-control form-input" id="exampleInputEmail1"  placeholder="{{Blogs.title}}">
         </div>
         <div class="form-group">
           <label for="">选择板块</label>
@@ -22,15 +22,15 @@
             <option value="0">时事</option>
             <option value="1">经济</option>
             <option value="2">技术</option>
-            <option value="3">测试</option>
+            <option value="3">客户端测试</option>
           </select>
         </div>
         <div>
           <label for="">内容</label>
           
           <div id="div1">
-            <p>欢迎使用 <b>wangEditor</b> 富文本编辑器</p>
-        </div>
+            <p>{{Blogs.article}}</p>
+          </div>
         </div>
         <script src="../node_modules/wangeditor/dist/wangEditor.js"></script>
           <!-- <script>
@@ -51,11 +51,12 @@
                 // 第二步，监控变化，同步更新到 textarea
                 $text1.val(editor.txt.text())
             }
-            editor.config.uploadImgServer = '/public/ckeditor'
+            editor.config.uploadImgServer = '/upload-img'
 
             editor.config.customUploadImg = function (resultFiles, insertImgFn) {
     // resultFiles 是 input 中选中的文件列表
     // insertImgFn 是获取图片 url 后，插入到编辑器的方法
+
     // 上传图片，返回结果，将图片插入到编辑器中
     insertImgFn(imgUrl)
 }

@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="../public/css/commen.css" />
+<link rel="stylesheet" type="text/css" href="../../public/css/commen.css" />
 <nav class="navbar navbar-default">
   <div class="container">
 
@@ -13,13 +13,13 @@
                       <a class="nav-link" href="/">首页</a>
                   </li>
                   <li class="nav-iteml">
-                      <a class="nav-link" href="/404">热门推荐</a>
+                      <a class="nav-link" href="/#hott">热门推荐</a>
                   </li>
                   <li class="nav-iteml">
                       <a class="nav-link" href="/blog1">冬奥会</a>
                   </li>
                   <li class="nav-iteml">
-                      <a class="nav-link" href="/">同城</a>
+                      <a class="nav-link" href="/sort">分类</a>
                   </li>
                   <li class="nav-iteml">
                       <a class="nav-link" href="/blog2">抗疫</a>
@@ -47,13 +47,33 @@
             <li role="separator" class="divider"></li>
             <li><a href="/profile">个人主页</a></li>
             <li><a href="/admin">设置</a></li>
-            <li><a href="/mybolg">我的博客</a></li>
+            <li><a href="/myblog">我的博客</a></li>
+            <li><a href="/backstage">管理</a></li>
             <li><a href="/logout">退出</a></li>
           </ul>
         </li>
+        {{ else if gender}}
+        <a class="navbar-btn" href="/topics/new">发起</a>
+        <ul class="nav navbar-nav navbar-right">
+        
+        <li class="dropdown open" id="blackindex">
+          <a href="#" id="dripdw" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img  class="touxiang"  src="../../public/img/avatar-default.png" alt=""> <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-current-user">
+              当前登录用户: {{ user.nickname }}
+            </li>
+            <li role="separator" class="divider"></li>
+            <li><a href="/profile">个人主页</a></li>
+            <li><a href="/admin">设置</a></li>
+            <li><a href="/myblog">我的博客</a></li>
+            <li><a href="/">管理</a></li>
+            <li><a href="/logout">退出</a></li>
+
+          </ul>
+        </li>
         {{ else }}
-        <a class="btn btn-primary navbar-btn" href="/login">登录</a>
-        <a class="btn btn-success navbar-btn" href="/register">注册</a>
+        <a class="btn btn-primary navbar-btn" id="btnlogin" href="/login">登录</a>
+        <a class="btn btn-success navbar-btn" id="btnlogin" href="/register">注册</a>
         {{ /if }}
               </ul>
           </div>

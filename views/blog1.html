@@ -39,7 +39,7 @@
           <a class="blog-nav-item active" href="/">首页</a>
           <a class="blog-nav-item" href="#">热门推荐</a>
           <a class="blog-nav-item" href="/blog1">冬奥会</a>
-          <a class="blog-nav-item" href="#">同城</a>
+          <a class="blog-nav-item" href="/sort">分区</a>
           <a class="blog-nav-item" href="/blog2">抗疫</a>
         </nav>
       </div>
@@ -98,7 +98,7 @@
           <div class="blog-post"> {{each tops}}
             <div class="panel panel-default">
               <div class="panel-heading">
-                <span>admin</span>
+                <span>{{$value.nickname}}</span>
  
                 <span class="action">
                   <a href=""><i class="glyphicon glyphicon-thumbs-up pull-right"></i></a>
@@ -108,7 +108,7 @@
               </div>
               
               <div class="panel-body">
-                {{$value.content}}
+                {{$value.comments}}
               </div>
             </div>{{/each}}
             <hr>
@@ -119,7 +119,7 @@
               <!-- <textarea class="form-control" name="content" id="" cols="10" rows="10"></textarea> -->
               <div class="form-group">
                 <label for="">内容</label>
-                <textarea name="content" class="form-control" rows="3"></textarea>
+                <textarea name="comments" class="form-control" rows="3"></textarea>
               </div>
             </div>
             <button type="submit" class="btn btn-success">回复</button>

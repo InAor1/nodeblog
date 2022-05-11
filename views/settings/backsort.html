@@ -1,0 +1,96 @@
+{{extend '../_layouts/home.html'}}
+
+{{block 'title'}}{{'多人博客 - 首页'}}{{/block}}
+{{block 'head'}}
+<link rel="stylesheet" href="../../public/css/setting.css">
+<link rel="stylesheet" href="../../public/css/backstage.css">
+{{/block}}
+
+{{block 'body'}}
+<section class="container">
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-3 col-md-2 sidebar">
+        <ul class="nav-sidebar">
+          <li class="bkta active"><a href="#"><h2 class="bh"id="white">后台</h2><span class="sr-only"></span></a></li>
+          <li class="bkta"><a href="/backstage">全部博客<span class="sr-only"></span></a></li>
+          <li class="bkta"><a href="/backsort">博客分类</a></li>
+        </ul>
+      
+      </div>
+      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        
+
+        <h2 class="sub-header bh">博客分类</h2>
+        <div class="table-responsive">
+          <table class="table table-striped">
+           
+            <thead>
+              <tr class="head">
+                <th>博客id</th>
+                <th>博客名称</th>
+                <th>功能</th>
+              </tr>
+            </thead>
+        
+            <tbody>
+              {{each Blogs}}
+              <tr>
+                <td class="t-left">1,00{{$value.item}}</td>
+                <td>{{$value.title}}</td>
+                <form method="post" action='/backsort/sort'>
+                <td>
+                  <label for="">选择板块</label>
+                  <select class="form-control" name="model">
+                    <option value="0">时事</option>
+                    <option value="1">经济</option>
+                    <option value="2">技术</option>
+                    <option value="3">测试</option>
+                  </select>
+                <td> 
+                  <textarea name="id" id="" cols="30" rows="10" style="display:none;width:100%; height:200px;">{{$value._id}}</textarea>
+                  <!-- <td><a href="/backsort/sort?id={{$value._id}}">submit</a></td> -->
+                  <button type="submit"  id="btnsu" class="btn btn-default">Submit</button>
+                </select>
+              </form>
+              </tr>
+              {{/each}}
+              <tr>
+                <td>1,001</td>
+                <td>冬奥会吉祥物冰墩墩</td>
+                <td><a href="">删除</a></td>
+              </tr>
+              <tr>
+                <td>1,002</td>
+                <td>乌克兰终于“造反”了</td>
+                <td><a href="">删除</a></td>
+              </tr>
+              <tr>
+                <td>1,003</td>
+                <td>美国为了“困住”俄罗斯</td>
+                <td><a href="">删除</a></td>
+              </tr>
+              <tr>
+                <td>1,003</td>
+                <td>总统办公室喊话：赶紧回国</td>
+                <td><a href="">删除</a></td>
+              </tr>
+              <tr>
+                <td>1,004</td>
+                <td>乌总统泽连斯基发言</td>
+                <td><a href="">删除</a></td>
+              </tr>
+              <tr>
+                <td>1,005</td>
+                <td>冬奥会吉祥物冰墩墩</td>
+                <td><a href="">删除</a></td>
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+{{/block}}

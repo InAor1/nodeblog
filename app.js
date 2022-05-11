@@ -4,12 +4,28 @@ var bodyParser = require('body-parser')
 var session = require('express-session')
 var router = require('./router')
 const template = require('art-template');
+const multer =require('multer')
 var app = express()
 
 
 app.use('/public/', express.static(path.join(__dirname, './public/')))
 app.use('/node_modules/', express.static(path.join(__dirname, './node_modules/')))
 
+//上传图片配置
+const upload = multer({
+  dest:'./public/upload',
+  limits:{
+    fileSize:1024*1024*2
+  }
+})
+app.use('/public/',upload.single('upload'),(req,res,next)=>{
+  let {file} = req
+  if(file){
+    let extname = path.extname(file.originalname)//原名
+    fs.renameSync(file.path,file.path + extname)//文件路径
+    req.uploadUrl = '/upload/'+ file.filename + extname 
+  }
+})
 
 app.engine('html', require('express-art-template'))
 app.set('views', path.join(__dirname, './views/')) // 默认就是 ./views 目录

@@ -8,7 +8,6 @@ var  right = document.getElementById("button-right")
 let  min = document.getElementsByClassName("min")
 let  images = document.getElementsByClassName("images")
 
-alert(left)
 
 let index =0;
 let time;
@@ -118,3 +117,4 @@ for(let i = 0;i<min.length;i++){
     })
 }
 timer()
+

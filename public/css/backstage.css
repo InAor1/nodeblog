@@ -1,0 +1,56 @@
+body {
+    font-size: 14px;
+    line-height: 1.42857143;
+    background-color: #fff;
+}
+
+.sidebar {
+    position: absolute;
+   top: 80px;
+   left: -40PX;
+}
+.bkta a{
+    display: block;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    height: 50px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    width: 200px;
+    line-height: 50px;
+    color: black;
+}
+.sidebar {
+    float: left;
+}
+.main {
+    float: left;
+    position: absolute;
+    top: 100px;
+    left: 300px;
+}
+.active {
+    background-color: #428BCA;
+    padding: 4px 20px;
+}
+.table{
+    width: 1000px;
+    
+}
+.table thead th{
+    vertical-align: bottom;
+    border-bottom: 2px solid #ddd;
+    padding: 8px;
+}
+.table tbody td{
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+}
+.bh{
+    margin:10px 0;
+}
+#white {
+    color: white;
+}
+

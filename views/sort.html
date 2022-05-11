@@ -1,0 +1,48 @@
+{{extend './_layouts/home.html'}}
+
+{{block 'title'}}{{'多人博客 - 首页'}}{{/block}}
+{{block 'head'}}
+<link rel="stylesheet" href="../public/css/setting.css">
+<link rel="stylesheet" href="../public/css/backstage.css">
+{{/block}}
+
+{{block 'body'}}
+<section class="container">
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-3 col-md-2 sidebar">
+        <ul class="nav-sidebar">
+          <li class="bkta active"><a href="#"><h2 class="bh"id="white">后台</h2><span class="sr-only"></span></a></li>
+          <li class="bkta"><a href="/sort">全部博客<span class="sr-only"></span></a></li>
+          <li class="bkta"><a href="/sort/part?model=0">时事</a></li>
+          <li class="bkta"><a href="/sort/part?model=1">经济</a></li>
+          <li class="bkta"><a href="/sort/part?model=2">技术</a></li>
+          <li class="bkta"><a href="/sort/part?model=3">测试</a></li>
+        </ul>
+      
+      </div>
+      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        
+
+        <h2 class="sub-header bh">全部博客</h2>
+        <div class="table-responsive">
+          {{each Blogs}}
+        <div class="card h-100">
+            <img src="../../public/img/12.jpg"  width="253px" height="131px" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{$value.title}}</h5>
+                <p class="card-text"><small class="text-muted">2022-2-10 20:14:52</small></p>
+                <p class="card-text">冰墩墩和雪容融的前世今生.</p>
+                <a href="#" class="stretched-link"></a>
+            </div>
+            <div class="card-footer">
+                <a href="/blog?id={{$value._id}}" name="" class="">查看博客</a>
+            </div>
+        </div>
+            {{/each}}
+        </div>
+      </div>
+    </div>
+  </div>
+{{/block}}

@@ -14,12 +14,6 @@ var blogSchema = new Schema({
         type: String,
         required: true
     },
-    model: {
-        type: Number,
-        enum: [0,1,2,3],
-        required: true
-        //0--分享 1--问答 2--招聘 3--客户端测试
-    },
     title: {
         type: String,
         required: true
@@ -34,6 +28,10 @@ var blogSchema = new Schema({
         // 这里给了一个方法Date.now
         // 当new model的时候，如果没有传递created_time属性，mongoose就会调用该方法
         default: Date.now
+    },
+    model:{
+        type: Number,
+        enum: [0, 1, 2, 3]
     }
 })
 

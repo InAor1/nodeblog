@@ -1,0 +1,33 @@
+{{extend '../_layouts/home.html'}}
+
+{{block 'title'}}{{'多人博客 - 首页'}}{{/block}}
+{{block 'head'}}
+<link rel="stylesheet" href="../../public/css/setting.css">
+
+</style>
+{{/block}}
+
+{{block 'body'}}
+<section class="container">
+  {{include '../_partials/settings-nav.html'}}
+  <div class=" blogst">
+        <div id="card-width">
+            {{each Blogs}}
+        <div class="card h-100">
+            <img src="../../public/img/12.jpg"  width="253px" height="131px" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{$value.title}}</h5>
+                <p class="card-text"><small class="text-muted">2022-2-10 20:14:52</small></p>
+                <p class="card-text">冰墩墩和雪容融的前世今生.</p>
+                <a href="#" class="stretched-link"></a>
+            </div>
+            <div class="card-footer">
+                <a href="/myblog/amend?id={{$value._id}}" name="" class="">修改博客</a>
+                <a href="/myblog/delete?id={{$value._id}}" name="" class="">删除博客</a>
+            </div>
+        </div>
+            {{/each}}
+        </div>
+    </div>
+</section>
+{{/block}}

@@ -1,0 +1,67 @@
+{{extend '../_layouts/home.html'}}
+
+{{block 'title'}}{{'多人博客 - 首页'}}{{/block}}
+{{block 'head'}}
+<link rel="stylesheet" href="../../public/css/setting.css">
+
+</style>
+{{/block}}
+
+{{block 'body'}}
+<section class="container">
+  {{include '../_partials/settings-nav.html'}}
+  <div class=" blogst">
+        <div id="card-width">
+        <div class="card h-100">
+            <img src="../../public/img/4.jpg"  width="253px" height="131px" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">冬奥会吉祥物冰墩墩</h5>
+                <p class="card-text"><small class="text-muted">2022-2-10 20:14:52</small></p>
+                <p class="card-text">冰墩墩和雪容融的前世今生.</p>
+                <a href="#" class="stretched-link"></a>
+            </div>
+            <div class="card-footer">
+                <a href="#" class="">修改博客</a>
+                <a href="#" class="">删除博客</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="../public/img/8.jpg" width="253px" height="131px" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">乌克兰终于“造反”了</h5>
+                <p class="card-text"><small class="text-muted">2022-2-24 20:14:52</small></p>
+                <p class="card-text">大国博弈，小国为棋</p>
+            </div>
+            <div class="card-footer bg-white border-0">
+                <a href="#" class="">修改博客</a>
+                <a href="#" class="">删除博客</a>
+            </div>
+          </div>
+          <div class="card">
+            <img src="../public/img/9.jpg" width="253px" height="131px" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">美国为了“困住”俄罗斯</h5>
+                <p class="card-text"><small class="text-muted">2022-2-24 20:14:52</small></p>
+                <p class="card-text">完全不顾乌克兰的安危</p>
+            </div>
+            <div class="card-footer bg-white border-0">
+                <a href="#" class="">修改博客</a>
+                <a href="#" class="">删除博客</a>
+            </div>
+          </div>
+          <div class="card">
+            <img src="../public/img/10.jpg" width="253px" height="131px" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">总统办公室喊话：赶紧回国</h5>
+                <p class="card-text"><small class="text-muted">2022-2-24 20:14:52</small></p>
+                <p class="card-text">最富有的一批人正“逃离”乌克兰</p>
+            </div>
+            <div class="card-footer bg-white border-0">
+                <a href="#" class="">修改博客</a>
+                <a href="#" class="">删除博客</a>
+            </div>
+          </div>
+        </div>
+    </div>
+</section>
+{{/block}}

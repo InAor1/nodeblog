@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="https://fastly.jsdelivr.net/npm/@bootcss/v3.bootcss.com@1.0.30/favicon.ico">
     <link rel="canonical" href="https://getbootstrap.com/docs/3.4/examples/blog/">
-
+    
     <title>Blog Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
@@ -30,7 +30,31 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-
+  <script>
+    $("#comments_form").on('submit',e => {
+      e.preventDefault()
+      if ($("textarea").val() === ''){
+        window.alert("还没有输入内容！")
+        return false
+      }
+      const id = $(this)[0].location.search.slice(4).replace(/\"/g,"")
+      const formData = $("#comments_form").serialize()
+      $.ajax({
+        url: "/blog",
+        type: "post",
+        data: formData+"&articleId="+id,
+        dataType: 'json',
+        success: data => {
+          const err_code = data.err_code
+          if (err_code === 0){
+            window.location.href='/blog?id='+id
+          }else if (err_code === 500){
+            window.alert('服务器忙，请稍后重试！')
+          }
+        }
+      })
+    })
+  </script>
   <body>
 
     <div class="blog-masthead">
@@ -44,104 +68,57 @@
         </nav>
       </div>
     </div>
-
+      
     <div class="container">
-
+      
       <div class="blog-header">
-        <h1 class="blog-title">抗疫2021</h1>
-        <p class="lead blog-description">波折与希望交织的一年</p>
+        <h1 class="blog-title">{{Blogs.title}}</h1>
+       
       </div>
-
-      <div class="row">
-
+     
         <div class="col-sm-8 blog-main">
 
           <div class="blog-post">
             <h2 class="blog-post-title"></h2>
-            <p class="blog-post-meta">January 1, 2021 by <a href="#">Mark</a></p>
-            <img src="../public/img/7.jpg" alt="">
-            <p>时至2021年岁末，新冠疫情这场百年未遇的全球重大公共卫生危机依然复杂严峻。
-
-              回首这一年，大规模疫苗接种助力世界阻击疫情，但病毒频繁变异，变异毒株德尔塔和奥密克戎先后袭来，发展中国家尤其最不发达国家深陷“免疫鸿沟”，个别西方国家将病毒溯源政治化制造分裂，全球抗疫之路充满波折。</p>
-            <hr>
-            <p>北京冬奥会和冬残奥会吉祥物
-
-              专家评审委员会主席蒋效愚
-              
-              北京冬奥组委文化活动部
-              
-              形象景观艺术总监林存真
-              
-              向您讲述“冰墩墩”、“雪容融”
-              
-              设计背后的故事</p>
+            <p class="blog-post-meta">{{Blogs.created_time}}<a href="#">by {{Blogs.nickname}}</a></p>
+            
+            {{Blogs.article}}
             <blockquote>
               
             </blockquote>
-            <img src="../public/img/5.jpg" alt="">
-            <p></p>
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <span>afsdsdaf</span> commented 
-                <span>24 minutes ago</span>
-                <span class="action">
-                  <a href=""><i class="glyphicon glyphicon-thumbs-up pull-right"></i></a>
-                  <a href=""><i class="glyphicon glyphicon-remove-circle pull-right"></i></a>
-                  <a href=""><i class="glyphicon glyphicon-remove-circle pull-right"></i></a>
-                </span>
-              </div>
-              <div class="panel-body">
-                评论测试
-              </div>
-            </div>
             <hr>
            
-          </div><!-- /.blog-post -->
-
+          </div>
+          
+          
+           
           <div class="blog-post">
+             {{each tops}}
             <div class="panel panel-default">
               <div class="panel-heading">
-                <span>saf</span> commented 
-                <span>24 minutes ago</span>
-                <span class="action">
-                  <a href=""><i class="glyphicon glyphicon-thumbs-up pull-right"></i></a>
-                  <a href=""><i class="glyphicon glyphicon-remove-circle pull-right"></i></a>
-                  <a href=""><i class="glyphicon glyphicon-remove-circle pull-right"></i></a>
-                </span>
+                <span>{{$value.nickname}}</span>
+                
               </div>
+              
               <div class="panel-body">
-                评论测试
+                <span>{{$value.comments}}</span>
               </div>
             </div>
-            <hr>
-            
-          </div><!-- /.blog-post -->
-
-          <div class="blog-post">
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <span>fdasfdsa</span> commented 
-                <span>24 minutes ago</span>
-                <span class="action">
-                  <a href=""><i class="glyphicon glyphicon-thumbs-up pull-right"></i></a>
-                  <a href=""><i class="glyphicon glyphicon-remove-circle pull-right"></i></a>
-                  <a href=""><i class="glyphicon glyphicon-remove-circle pull-right"></i></a>
-                </span>
-              </div>
-              <div class="panel-body">
-                评论测试
-              </div>
-            </div>
-            <hr>
-            <form>
+            <hr>{{/each}}
+          </div>
+          
+         
+          <form  id="comments_form" action="/blog" method="post">
+            <div class="form-group">
+              <label for="exampleInputPassword1">添加回复</label>
               <div class="form-group">
-                <label for="exampleInputPassword1">添加回复</label>
-                <textarea class="form-control" name="" id="" cols="10" rows="10"></textarea>
+                <label for="">内容</label>
+                <textarea name="comments" class="form-control" rows="3"></textarea>
+                <textarea id="text1" style="display:none;width:100%; height:200px;" class="form-control" rows="6" name="articleId">{{Blogs._id}}</textarea>
               </div>
-              <button type="submit" class="btn btn-success">回复</button>
-            </form>
-          </div><!-- /.blog-post -->
-
+            </div>
+            <button type="submit" class="btn btn-success">回复</button>
+          </form>
           <nav>
             <ul class="pager">
               <li><a href="/">回到首页</a></li>
@@ -179,7 +156,6 @@
     </div><!-- /.container -->
 
     <footer class="blog-footer">
-      
       <p>
         <a href="#">Back to top</a>
       </p>

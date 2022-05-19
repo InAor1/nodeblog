@@ -37,42 +37,12 @@
             <tbody>
               {{each Blogs}}
               <tr>
-                <td class="t-left">1,00{{$value.item}}</td>
+                <td class="t-left">{{$value._id}}</td>
                 <td>{{$value.title}}</td>
                 <td><a href="/blog?id={{$value._id}}">查看</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/backstage/delete?id={{$value._id}}">删除</a></td>
               </tr>
               {{/each}}
-              <tr>
-                <td>1,001</td>
-                <td>冬奥会吉祥物冰墩墩</td>
-                <td><a href="">删除</a></td>
-              </tr>
-              <tr>
-                <td>1,002</td>
-                <td>乌克兰终于“造反”了</td>
-                <td><a href="">删除</a></td>
-              </tr>
-              <tr>
-                <td>1,003</td>
-                <td>美国为了“困住”俄罗斯</td>
-                <td><a href="">删除</a></td>
-              </tr>
-              <tr>
-                <td>1,003</td>
-                <td>总统办公室喊话：赶紧回国</td>
-                <td><a href="">删除</a></td>
-              </tr>
-              <tr>
-                <td>1,004</td>
-                <td>乌总统泽连斯基发言</td>
-                <td><a href="">删除</a></td>
-              </tr>
-              <tr>
-                <td>1,005</td>
-                <td>冬奥会吉祥物冰墩墩</td>
-                <td><a href="">删除</a></td>
-              </tr>
-              
+            
             </tbody>
           </table>
         </div>

@@ -9,48 +9,58 @@
 <section class="container">
   {{include '../_partials/settings-nav.html'}}
   <div class="col-md-5">
-    <form>
+    <form action="/profile" method="post">
       <!-- <div class="form-group">
         <label for="exampleInputEmail1">账号</label>
         <p class="form-control-static">email@example.com</p>
       </div> -->
       <div class="form-group">
         <label for="exampleInputPassword1">昵称</label>
-        <input type="password" class="form-control form-input" id="exampleInputPassword1" placeholder="">
+        <input name="nickname"  class="form-control form-input" id="exampleInputPassword1" placeholder="">
+        <input type="text" name="avatar" id="imgc" style="display:none;" value="avatar-default.png">
+        <input type="text" name="id" id="imgc" style="display:none;" value="{{users._id}}">
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">介绍</label>
-        <textarea class="form-control form-input" rows="3" style="height: 150px;"></textarea>
+        <textarea name="bio" class="form-control form-input" rows="3" style="height: 150px;"></textarea>
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">性别</label>
         <div>
           <label class="radio-inline">
-            <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 男
+            <input  type="radio" name="status" id="inlineRadio1" value="0"> 男
           </label>
           <label class="radio-inline">
-            <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 女
+            <input  type="radio" name="status" id="inlineRadio2" value="1"> 女
           </label>
           <label class="radio-inline">
-            <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 保密
+            <input  type="radio" name="status" id="inlineRadio3" value="2"> 保密
           </label>
         </div>
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">生日</label>
-        <input type="password" class="form-control form-input" id="exampleInputPassword1" placeholder="">
+        <input name="birthday" type="date" class="form-control form-input" id="exampleInputPassword1" placeholder="">
       </div>
       <button type="submit" class="btn btn-success">保存</button>
     </form>
   </div>
+  <script>
+           function checkField(val)
+                {
+                	document.getElementById('imgc').value  = val;
+                }
+         </script>
   <div class="col-md-2 profile-avatar">
     <dl>
       <dt>头像设置</dt>
       <dd>
-        <img class="avatar" width="150" height="150" src="../public/img/avatar-max-img.png" alt="">
-        <div>
-          <button class="btn btn-default" href="">Upload new picture</button>
-        </div>
+        <img class="avatar" width="150" height="150" src="../public/upload/{{user.avatar}}" alt="">
+        <form action="/profile/img" method="post" enctype="multipart/form-data" id="form2">
+          <label for="">图片上传</label>
+        <input type="file" name="img" id="img" onchange="checkField(this.value)">
+        <input type="submit" id="btnimg" value="提交" >
+      </form>
       </dd>
     </dl>
   </div>

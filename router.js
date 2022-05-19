@@ -8,15 +8,19 @@ var Blogs = require('./models/comment')
 const { query } = require('express')
 
 router.get('/', function(req, res) {
-  Blogs.find(function(err,Blogs){
+   top.find(function(err,topic){
+    Blogs.find(function(err,Blogs){
     if(err){
       return res.status(500).send('Sever error')
     }
     res.render('index.html',{
       Blogs:Blogs,
-      user: req.session.user
+      user: req.session.user,
+      tops:topic
     })
   })
+  })
+  
 })
 
 router.get('/login', function (req, res) {
@@ -133,24 +137,42 @@ router.get('/logout', function (req, res) {
 
 router.get('/admin', function (req, res) {
   const email = req.session.user.email
-  Blogs.findOne({email:email},function(err,ret){
+  User.findOne({email:email},function(err,users){
+    Blogs.findOne({email:email},function(err,ret){
     res.render('settings/admin.html',{
     user: req.session.user,
-    Blogs:ret
+    Blogs:ret,
+    users:users
+  })
+  })
+  })
+  
+  
+})
+
+router.get('/profile', function (req, res) {
+  User.findOne({email:req.session.user.email},function(err,ret){
+    res.render('settings/profile.html',{
+    user: req.session.user,
+    users:ret
   })
   })
   
 })
-router.post('/admin', function (req, res) {
-
-  res.render('settings/admin.html',{
-    user: req.session.user
+router.post('/profile', function (req, res) {
+  const body = req.body
+  body["avatar"] = (req.body.avatar).replace(/\C:\\fakepath\\/g,"")
+  const id = (req.body.id).replace(/\"/g,"")
+  User.findByIdAndUpdate(id,{status:req.body.status,avatar:req.body.avatar,nickname:req.body.nickname,bio:req.body.bio,birthday:req.body.birthday},function(err,ret){
+    if(err){
+                  console.log('保存失败')
+              }else{
+                  console.log('保存成功')
+                  console.log(ret)
+                  
+              }
   })
-})
-router.get('/profile', function (req, res) {
-  res.render('settings/profile.html',{
-    user: req.session.user
-  })
+  res.redirect('/')
 })
 
 
@@ -192,6 +214,7 @@ router.get('/topics/new', function (req, res) {
 })
 router.post('/topics/new', function (req, res) {
     const body = req.body
+    body["img"] = (req.body.img).replace(/\C:\\fakepath\\/g,"")
     body["email"] = req.session.user.email
     body["nickname"] = req.session.user.nickname
     new Blogs(body).save(function(err,ret){
@@ -199,7 +222,7 @@ router.post('/topics/new', function (req, res) {
                   console.log('保存失败')
               }else{
                   console.log('保存成功')
-
+                      
               }})
     res.redirect('/')
 })
@@ -233,7 +256,7 @@ router.post('/blog', function (req, res) {
       return res.status(500).send('Sever error')
     }
   })
-  res.redirect('/')
+  res.redirect('/blog?id='+body["articleId"])
 })
 
 router.get('/blog3', async (req, res)=> {
@@ -273,7 +296,8 @@ router.get('/article/search', function (req, res) {
   })
 })
 router.post('/article/search', function (req, res) {
-  Blogs.find({keyword:req.body.keyword},function(err,ret){
+  const keyword = req.body.keyword
+  Blogs.find({title:{$regex:keyword}},function(err,ret){
     if(err){
       return res.status(500).send('Sever error')
     }else{
@@ -314,10 +338,26 @@ router.get('/myblog/amend', function (req, res) {
       return res.status(500).send('Sever error')
     }
   res.render('amend.html',{
-    Blogs:blogs
+    Blogs:blogs,
+    user:req.session.user
   })
   })
   
+})
+router.post('/myblog/amend', function (req, res) {
+    const body = req.body
+    console.log(body)
+    const id= (req.body.id).replace(/\"/g,"")
+    Blogs.findByIdAndUpdate(id,{title:body.title,article:body.article,img:body.img},function(err,ret){
+      if(err){
+                    console.log('保存失败')
+                }else{
+                    console.log('保存成功')
+                    console.log(ret)
+                    
+                }
+    })
+    res.redirect('/blog?id='+req.body.id+'')
 })
 
 router.get('/backstage',function(req,res){
@@ -371,16 +411,14 @@ router.post('/backsort/sort',function(req,res){
 })
 
 router.post('/admin/updata',function(req,res){
-
   const id = (req.body.id).replace(/\"/g,"")
   const password = req.body.password
-  Blogs.findByIdAndUpdate(id,{password:password},function(err,ret){
+  User.findByIdAndUpdate(id,{password:password},function(err,ret){
     if(err){
                   console.log('保存失败')
               }else{
                   console.log('保存成功')
-                  console.log(ret)
-                  
+                  console.log(ret) 
               }
   })
   res.redirect('/')

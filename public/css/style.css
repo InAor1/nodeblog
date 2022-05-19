@@ -175,3 +175,18 @@
 .col {
     height: 400px;
 }
+/* #div1 {
+    position: relative;
+    top: 50px;
+} */
+.download{
+    margin-top: 50px;
+}
+.upwang {
+    position: absolute;
+    top: 145px;
+}
+#downway {
+    float: left;
+    margin-left: 150px;
+}

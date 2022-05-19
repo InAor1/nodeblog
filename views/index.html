@@ -19,6 +19,7 @@
           var cur_img = document.createElement("img");
 
           cur_img.src = "../public/img/" + i +".jpg";
+          
           cur_img.style.width = "600px";
           cur_img.style.height = "300px";
           cur_li.appendChild(cur_img);
@@ -110,19 +111,6 @@
 
 <div class="container mt-5 banxin">
 <h2 class="mb-4" id="hott">热门推荐</h2>
-{{each blogs}}
-<div class="card-deck">
-      <div class="card">
-          <img src="../public/img/2.jpg" class="card-img-top" alt="..."> 
-          <div class="card-body">
-              <h5 class="card-title">{{ $value}}</h5>
-              
-          </div>
-          <div class="card-footer bg-white border-0">
-              <a href="/blog3?id={{$value._id}}" class="btn btn-primary float-right stretched-link">查看详情</a>
-          </div> 
-
-      </div> {{/each}}
 <div class="card">
   <img src="../public/img/8.jpg" width="253px" height="131px" class="card-img-top" alt="...">
   <div class="card-body">
@@ -131,7 +119,7 @@
       <p class="card-text">大国博弈，小国为棋</p>
   </div>
   <div class="card-footer bg-white border-0">
-      <a href="#" class="btn  float-right stretched-link">查看详情</a>
+      <a href="/blog?id=627cde4878f6ad49b440ea71" class="btn  float-right stretched-link">查看详情</a>
   </div>
 </div>
 <div class="card">
@@ -142,7 +130,7 @@
       <p class="card-text">完全不顾乌克兰的安危</p>
   </div>
   <div class="card-footer bg-white border-0">
-      <a href="/blog3" class="btn  float-right stretched-link">查看详情</a>
+      <a href="/blog?id=627cded078f6ad49b440ea73" class="btn  float-right stretched-link">查看详情</a>
   </div>
 </div>
 <div class="card">
@@ -153,7 +141,7 @@
       <p class="card-text">最富有的一批人正“逃离”乌克兰</p>
   </div>
   <div class="card-footer bg-white border-0">
-      <a href="#" class="btn  float-right stretched-link">查看详情</a>
+      <a href="/blog?id=627ce10d78f6ad49b440ea77" class="btn  float-right stretched-link">查看详情</a>
   </div>
 </div>
 <div class="card">
@@ -164,15 +152,44 @@
       <p class="card-text">要求相关媒体“提供更多的证据”</p>
   </div>
   <div class="card-footer bg-white border-0">
-      <a href="#" class="btn  float-right stretched-link">查看详情</a>
+      <a href="/blog?id=627cde9478f6ad49b440ea72" class="btn  float-right stretched-link">查看详情</a>
   </div>
 </div>
 </div>
 </div>
 
-<section class="container banxin">
-  <h2 class="mb-4">最新博客</h2>
+<div class="container mt-5 banxin">
+  <h2 class="mb-4" id="hott">最新博客</h2>
+  <div class="card">
+    <img src="../public/img/4.jpg" width="253px" height="131px" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">冬奥会吉祥物冰墩墩</h5>
+        <p class="card-text"><small class="text-muted">2022-2-24 20:14:52</small></p>
+        <p class="card-text">冬奥会吉祥物冰墩墩</p>
+    </div>
+    <div class="card-footer bg-white border-0">
+        <a href="/blog1" class="btn  float-right stretched-link">查看详情</a>
+    </div>
+  </div>
+  {{ each Blogs}}
+  <div class="card">
+    <img src="../public/upload/{{$value.img}}" width="253px" height="131px" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">{{$value.title}}</h5>
+        <p class="card-text"><small class="text-muted">{{$value.created_time}}</small></p>
+        <p class="card-text"></p>
+    </div>
+    <div class="card-footer bg-white border-0">
+        <a href="/blog?id={{$value._id}}" class="btn  float-right stretched-link">查看详情</a>
+    </div>
+  </div>
+  {{ /each }}
+</div>
+
+<section class="container banxin" id="downway">
+  <h2 class="mb-4">最新评论</h2>
   <ul class="media-list">
+    {{ each tops}}
     <li class="media">
       <div class="media-left">
         <a href="#">
@@ -180,20 +197,9 @@
         </a>
       </div>
       <div class="media-body">
-        <h2 class="media-heading"><a href="/blog1">冬奥会吉祥物冰墩墩</a></h2>
-        <p>"2022-05-10T13:03:59.569Z"</p>
-      </div>
-    </li>
-    {{ each Blogs}}
-    <li class="media">
-      <div class="media-left">
-        <a href="#">
-            <img width="40" height="40" class="media-object" src="../public/img/avatar-default.png" alt="...">
-        </a>
-      </div>
-      <div class="media-body">
-        <h2 class="media-heading"><a href="/blog?id={{$value._id}}">{{$value.title}}</a></h2>
+        <h2 class="media-heading"><a href="/blog?id={{$value.articleId}}">{{$value.comments}}</a></h2>
         <p>{{$value.created_time}}</p>
+        
       </div>
     </li>
     {{ /each }}
